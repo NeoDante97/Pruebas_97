@@ -118,6 +118,75 @@
             border-color: var(--color-primary);
         }
 
+        /* Base para textos de botón responsivos */
+        .btn-text-responsive {
+            display: inline;
+        }
+
+        /* LED Indicador de Recepción/Sincronización */
+        .led-indicator-green {
+            width: 8px;
+            height: 8px;
+            background-color: #22c55e;
+            border-radius: 50%;
+            box-shadow: 0 0 8px rgba(34, 197, 94, 0.6);
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        
+        /* Animación de latido lento (conectado/activo) */
+        .led-pulse-slow {
+            animation: ledPulseSlow 2s infinite ease-in-out;
+        }
+        @keyframes ledPulseSlow {
+            0% { transform: scale(0.9); opacity: 0.7; box-shadow: 0 0 4px rgba(34, 197, 94, 0.4); }
+            50% { transform: scale(1.1); opacity: 1; box-shadow: 0 0 10px rgba(34, 197, 94, 0.8); }
+            100% { transform: scale(0.9); opacity: 0.7; box-shadow: 0 0 4px rgba(34, 197, 94, 0.4); }
+        }
+        
+        /* Animación de parpadeo rápido (recepción de datos) */
+        .led-flash-fast {
+            animation: ledFlashFast 0.15s infinite alternate ease-in-out;
+            background-color: #4ade80 !important;
+            box-shadow: 0 0 15px rgba(74, 222, 128, 1), 0 0 25px rgba(74, 222, 128, 0.8) !important;
+        }
+        @keyframes ledFlashFast {
+            0% { transform: scale(0.85); opacity: 0.4; }
+            100% { transform: scale(1.35); opacity: 1; }
+        }
+
+        /* LED Indicador Amarillo (Detección de Envío de Otros Usuarios) */
+        .led-indicator-yellow {
+            width: 8px;
+            height: 8px;
+            background-color: #eab308;
+            border-radius: 50%;
+            box-shadow: 0 0 8px rgba(234, 179, 8, 0.6);
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        
+        /* Animación de latido lento amarillo */
+        .led-pulse-slow-yellow {
+            animation: ledPulseSlowYellow 2s infinite ease-in-out;
+        }
+        @keyframes ledPulseSlowYellow {
+            0% { transform: scale(0.9); opacity: 0.7; box-shadow: 0 0 4px rgba(234, 179, 8, 0.4); }
+            50% { transform: scale(1.1); opacity: 1; box-shadow: 0 0 10px rgba(234, 179, 8, 0.8); }
+            100% { transform: scale(0.9); opacity: 0.7; box-shadow: 0 0 4px rgba(234, 179, 8, 0.4); }
+        }
+        
+        /* Animación de parpadeo rápido amarillo (recepción de datos de otros) */
+        .led-flash-fast-yellow {
+            animation: ledFlashFastYellow 0.15s infinite alternate ease-in-out;
+            background-color: #fde047 !important;
+            box-shadow: 0 0 15px rgba(253, 224, 71, 1), 0 0 25px rgba(253, 224, 71, 0.8) !important;
+        }
+        @keyframes ledFlashFastYellow {
+            0% { transform: scale(0.85); opacity: 0.4; }
+            100% { transform: scale(1.35); opacity: 1; }
+        }
+
         /* --- LOGIN FUTURISTA PREMIUM --- */
         #login-section {
             min-height: 100vh;
@@ -660,6 +729,7 @@
                 margin-left: 0; 
                 width: 100%; 
                 padding: 20px; 
+                padding-top: 55px; /* Espacio para licencia flotante */
             }
             .sidebar-overlay.show-overlay { 
                 display: block; 
@@ -686,6 +756,53 @@
                 padding: 6px 4px !important;
                 font-size: 0.8rem !important;
             }
+
+            /* Header NO FLOTANTE en Tableta */
+            .top-bar {
+                position: relative !important;
+                top: auto !important;
+                left: auto !important;
+                right: auto !important;
+                z-index: auto !important;
+                margin-bottom: 20px !important;
+                border-radius: 16px !important;
+                padding: 16px 24px !important;
+                box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04) !important;
+                background: #ffffff !important;
+                border: 1px solid var(--border-light) !important;
+                display: flex !important;
+                flex-direction: row !important;
+                justify-content: space-between !important;
+                align-items: center !important;
+            }
+
+            /* Licencia flotante superior derecha */
+            #licencia-badge-container {
+                position: fixed !important;
+                top: 12px !important;
+                right: 12px !important;
+                left: auto !important;
+                z-index: 1030 !important;
+                margin: 0 !important;
+            }
+
+            /* Ocultar texto en botones responsivos en Tableta */
+            .btn-text-responsive {
+                display: none !important;
+            }
+            .btn:has(.btn-text-responsive) {
+                padding: 8px 12px !important;
+                display: inline-flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                min-width: 42px !important;
+                min-height: 42px !important;
+                border-radius: 10px !important;
+            }
+            .btn:has(.btn-text-responsive) i {
+                margin: 0 !important;
+                font-size: 1.1rem !important;
+            }
         }
 
         /* 4. CELL PHONE (CELULAR): Viewports Pequeños (< 768px) */
@@ -701,31 +818,30 @@
                 margin-left: 0; 
                 width: 100%; 
                 padding: 12px; 
-                padding-top: 85px; /* Espacio para el header sticky flotante */
+                padding-top: 55px; /* Espacio para licencia flotante */
             }
             .sidebar-overlay.show-overlay { 
                 display: block; 
                 opacity: 1; 
             }
             
-            /* Header Flotante Sticky en Celular */
+            /* Header NO FLOTANTE en Celular para que no tape los botones */
             .top-bar {
-                position: fixed;
-                top: 10px;
-                left: 10px;
-                right: 10px;
-                z-index: 1000;
-                margin-bottom: 0;
-                border-radius: 14px;
-                padding: 10px 16px;
-                box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-                background: rgba(255, 255, 255, 0.92);
-                backdrop-filter: blur(12px);
-                -webkit-backdrop-filter: blur(12px);
-                border: 1px solid rgba(255, 255, 255, 0.6);
-                flex-direction: row;
-                justify-content: space-between;
-                align-items: center;
+                position: relative !important;
+                top: auto !important;
+                left: auto !important;
+                right: auto !important;
+                z-index: auto !important;
+                margin-bottom: 20px !important;
+                border-radius: 14px !important;
+                padding: 12px 16px !important;
+                box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04) !important;
+                background: #ffffff !important;
+                border: 1px solid var(--border-light) !important;
+                display: flex !important;
+                flex-direction: row !important;
+                justify-content: space-between !important;
+                align-items: center !important;
             }
             .top-bar > div {
                 width: auto !important;
@@ -735,6 +851,34 @@
             .top-bar .user-badge {
                 margin-right: 8px !important;
                 font-size: 0.82rem;
+            }
+
+            /* Licencia flotante superior derecha en Celular */
+            #licencia-badge-container {
+                position: fixed !important;
+                top: 12px !important;
+                right: 12px !important;
+                left: auto !important;
+                z-index: 1030 !important;
+                margin: 0 !important;
+            }
+
+            /* Ocultar texto en botones responsivos en Celular */
+            .btn-text-responsive {
+                display: none !important;
+            }
+            .btn:has(.btn-text-responsive) {
+                padding: 8px 12px !important;
+                display: inline-flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                min-width: 42px !important;
+                min-height: 42px !important;
+                border-radius: 10px !important;
+            }
+            .btn:has(.btn-text-responsive) i {
+                margin: 0 !important;
+                font-size: 1.1rem !important;
             }
             
             /* Tarjetas full width */
@@ -861,11 +1005,11 @@
             
             body * { visibility: hidden; } 
             
-            #v-reporte, #v-reporte *, #v-reporte-aux, #v-reporte-aux *, 
-            #v-reporte-docente, #v-reporte-docente *, #v-grafico-auxiliar, 
-            #v-grafico-auxiliar *, #v-reporte-faltas, #v-reporte-faltas * { 
-                visibility: visible; 
-            }
+            #v-reporte, #v-reporte * { visibility: visible; }
+            #v-reporte-aux, #v-reporte-aux * { visibility: visible; }
+            #v-reporte-docente, #v-reporte-docente * { visibility: visible; }
+            #v-grafico-auxiliar, #v-grafico-auxiliar * { visibility: visible; }
+            #v-reporte-faltas, #v-reporte-faltas * { visibility: visible; }
 
             #v-reporte, #v-reporte-aux, #v-reporte-docente, #v-grafico-auxiliar, #v-reporte-faltas {
                 position: absolute;
@@ -1668,8 +1812,8 @@
                 <div class="d-flex justify-content-between mb-3 align-items-center flex-wrap gap-2">
                     <h5 class="mb-0 fw-bold">Lista de Docentes</h5>
                     <div class="d-flex align-items-center gap-1">
-                        <button class="btn btn-success fw-bold shadow-sm admin-btn d-none" onclick="exportarExcel('Docentes')"><i class="fa-solid fa-file-excel"></i> Excel</button>
-                        <button class="btn btn-danger fw-bold shadow-sm admin-doc-btn pdf-btn-carnets d-none" onclick="prepararDescargaGrupoPDF('Docentes')"><i class="fa-solid fa-file-pdf"></i> PDF Carnets</button>
+                        <button class="btn btn-success fw-bold shadow-sm admin-btn d-none" onclick="exportarExcel('Docentes')"><i class="fa-solid fa-file-excel"></i><span class="btn-text-responsive"> Excel</span></button>
+                        <button class="btn btn-danger fw-bold shadow-sm admin-doc-btn pdf-btn-carnets d-none" onclick="prepararDescargaGrupoPDF('Docentes')"><i class="fa-solid fa-file-pdf"></i><span class="btn-text-responsive"> PDF Carnets</span></button>
                         <span class="badge bg-dark fs-6 admin-btn d-none me-2" id="count-Docentes">Total: 0</span>
                         
                         <button class="btn btn-primary fw-bold shadow-sm admin-btn d-none" onclick="abrirModalNuevo('Docentes')"><i class="fa-solid fa-plus"></i> Manual</button>
@@ -1699,7 +1843,7 @@
                 <div class="d-flex justify-content-between mb-3 align-items-center flex-wrap gap-2">
                     <h5 class="mb-0 fw-bold">Horario de Ingreso y Salida (Docentes)</h5>
                     <div class="d-flex gap-1">
-                        <button class="btn btn-danger fw-bold shadow-sm admin-btn d-none" id="btn-eliminar-hdoc" onclick="eliminarSeleccionados('Horario_Docentes')"><i class="fa-solid fa-trash-can"></i> Eliminar Seleccionados</button>
+                        <button class="btn btn-danger fw-bold shadow-sm admin-btn d-none" id="btn-eliminar-hdoc" onclick="eliminarSeleccionados('Horario_Docentes')"><i class="fa-solid fa-trash-can"></i><span class="btn-text-responsive"> Eliminar Seleccionados</span></button>
                         <button class="btn btn-primary fw-bold shadow-sm admin-btn d-none" onclick="abrirModalNuevo('Horario_Docentes')"><i class="fa-solid fa-plus"></i> Manual</button>
                         <button class="btn btn-success fw-bold shadow-sm admin-btn d-none" onclick="abrirModalMasivo('Horario_Docentes')"><i class="fa-solid fa-upload"></i> Masivo</button>
                     </div>
@@ -1898,7 +2042,7 @@
                     <div class="d-flex gap-2">
                         <button class="btn btn-warning fw-bold shadow-sm admin-btn d-none" onclick="revisarDuplicados('Asistencia_Auxiliar')"><i class="fa-solid fa-magnifying-glass-plus"></i> Duplicados</button>
                         <button class="btn btn-success fw-bold shadow-sm admin-btn d-none" onclick="abrirModalNuevo('Asistencia_Auxiliar')"><i class="fa-solid fa-plus"></i> Agregar Manual</button>
-                        <button class="btn btn-danger fw-bold shadow-sm admin-btn d-none" id="btn-delete-selected-Asistencia_Auxiliar" onclick="eliminarSeleccionados('Asistencia_Auxiliar')" disabled><i class="fa-solid fa-trash"></i> Eliminar Seleccionados</button>
+                        <button class="btn btn-danger fw-bold shadow-sm admin-btn d-none" id="btn-delete-selected-Asistencia_Auxiliar" onclick="eliminarSeleccionados('Asistencia_Auxiliar')" disabled><i class="fa-solid fa-trash"></i><span class="btn-text-responsive"> Eliminar Seleccionados</span></button>
                     </div>
                 </div>
                 <div class="row mb-3 g-2">
@@ -1960,14 +2104,14 @@
                         </div>
                     </div>
                     <div class="d-flex align-items-center gap-1">
-                        <button class="btn btn-success fw-bold shadow-sm" onclick="exportarExcel('Estudiantes')"><i class="fa-solid fa-file-excel"></i> Excel</button>
-                        <button class="btn btn-danger fw-bold shadow-sm pdf-btn-carnets" id="btn-pdf-carnets" onclick="abrirModalDescargaCarnets()"><i class="fa-solid fa-file-pdf"></i> PDF Carnets</button>
-                        <button class="btn btn-warning fw-bold shadow-sm" id="btn-manual-prefetch" onclick="ejecutarPrefetchManual()"><i class="fa-solid fa-sync"></i> Optimizar Carnets</button>
+                        <button class="btn btn-success fw-bold shadow-sm" onclick="exportarExcel('Estudiantes')"><i class="fa-solid fa-file-excel"></i><span class="btn-text-responsive"> Excel</span></button>
+                        <button class="btn btn-danger fw-bold shadow-sm pdf-btn-carnets" id="btn-pdf-carnets" onclick="abrirModalDescargaCarnets()"><i class="fa-solid fa-file-pdf"></i><span class="btn-text-responsive"> PDF Carnets</span></button>
+                        <button class="btn btn-warning fw-bold shadow-sm" id="btn-manual-prefetch" onclick="ejecutarPrefetchManual()"><i class="fa-solid fa-sync"></i><span class="btn-text-responsive"> Optimizar Carnets</span></button>
                         <span class="badge bg-dark fs-6 me-2" id="count-Estudiantes">Total: 0</span>
 
                         <button class="btn btn-primary fw-bold shadow-sm admin-btn d-none" id="btn-add-estudiante" onclick="abrirModalNuevo('Estudiantes')"><i class="fa-solid fa-plus"></i></button>
                         <button class="btn btn-success fw-bold shadow-sm admin-btn d-none" id="btn-upload-estudiante" onclick="abrirModalMasivo('Estudiantes')"><i class="fa-solid fa-upload"></i></button>
-                        <button class="btn btn-danger fw-bold shadow-sm admin-btn d-none" id="btn-delete-selected-Estudiantes" onclick="eliminarSeleccionados('Estudiantes')" disabled><i class="fa-solid fa-trash"></i> Eliminar Seleccionados</button>
+                        <button class="btn btn-danger fw-bold shadow-sm admin-btn d-none" id="btn-delete-selected-Estudiantes" onclick="eliminarSeleccionados('Estudiantes')" disabled><i class="fa-solid fa-trash"></i><span class="btn-text-responsive"> Eliminar Seleccionados</span></button>
                     </div>
                 </div>
                 <div class="row mb-2 g-2">
@@ -2069,7 +2213,7 @@
                         <span class="badge bg-dark fs-6" id="count-Apoderados">Total: 0</span>
                         <button class="btn btn-primary fw-bold shadow-sm admin-btn d-none" id="btn-add-apoderados" onclick="abrirModalNuevo('Apoderados')"><i class="fa-solid fa-plus"></i> Manual</button>
                         <button class="btn btn-success fw-bold shadow-sm admin-btn d-none" id="btn-upload-apoderados" onclick="abrirModalMasivo('Apoderados')"><i class="fa-solid fa-upload"></i> Masivo</button>
-                        <button class="btn btn-danger fw-bold shadow-sm admin-btn d-none" id="btn-delete-selected-Apoderados" onclick="eliminarSeleccionados('Apoderados')" disabled><i class="fa-solid fa-trash"></i> Eliminar Seleccionados</button>
+                        <button class="btn btn-danger fw-bold shadow-sm admin-btn d-none" id="btn-delete-selected-Apoderados" onclick="eliminarSeleccionados('Apoderados')" disabled><i class="fa-solid fa-trash"></i><span class="btn-text-responsive"> Eliminar Seleccionados</span></button>
                     </div>
                 </div>
                 <div class="row mb-3 g-2">
@@ -2376,7 +2520,7 @@
                         </button>
                         <button class="btn btn-outline-success fw-bold" onclick="imprimirReporteAuxiliar()"><i class="fa-solid fa-print"></i> Imprimir</button>
                         <button class="btn btn-success fw-bold shadow-sm" onclick="exportarReporteAuxiliarExcel()" style="border-radius: 20px; padding: 6px 20px;">
-                            <i class="fa-solid fa-file-excel me-1"></i> Descargar Excel
+                            <i class="fa-solid fa-file-excel me-1"></i><span class="btn-text-responsive"> Descargar Excel</span>
                         </button>
                     </div>
                 </div>
@@ -2864,7 +3008,7 @@
                 <div class="modal-footer bg-light">
                     <button type="button" class="btn btn-secondary fw-bold" data-bs-dismiss="modal">Cerrar</button>
                     <button type="button" class="btn btn-danger fw-bold" id="btn-eliminar-dup" onclick="eliminarDuplicadosSeleccionados()">
-                        <i class="fa-solid fa-trash-can me-2"></i> Eliminar Seleccionados
+                        <i class="fa-solid fa-trash-can me-2"></i><span class="btn-text-responsive"> Eliminar Seleccionados</span>
                     </button>
                 </div>
             </div>
@@ -6854,6 +6998,14 @@
                     }
                     return; 
                 }
+                
+                // --- NUEVO: TRIGGER LED FLASH ON RECEIVING NEW DATA ---
+                if (silencioso && datosMemoria[hoja]) {
+                    if (typeof triggerLedFlash === 'function') {
+                        triggerLedFlash();
+                    }
+                }
+
                 datosMemoria[hoja] = r.datos || [];
                 dibujarFilasTabla(hoja, datosMemoria[hoja]);
                 if (hoja === 'Asistencia_Auxiliar' || hoja === 'Registro_Asistencia' || hoja === 'Asistencia_Docentes') {
@@ -10130,6 +10282,7 @@
 
         // ================= GESTIÓN DE TURNOS Y CONCURRENCIA DE SUBIDA (5 EN 5) =================
         window.tengoTurnoSync = false;
+        window.otrosUsuariosEnviando = false;
         window.intervaloLatidoSync = null;
         window.timeoutReintentoTurno = null;
         window.intervaloEstadoSyncGlobal = null;
@@ -10147,6 +10300,19 @@
             let listContainer = document.getElementById('sync-active-users-list');
             let countBadge = document.getElementById('sync-turnos-activos-count');
             if (!listContainer) return;
+
+            // Detectar si hay otros usuarios enviando
+            let otherUsersAreSending = (sessions || []).some(s => String(s.dni).trim().padStart(8, '0') !== String(usuarioDniActual).trim().padStart(8, '0'));
+            window.otrosUsuariosEnviando = otherUsersAreSending;
+
+            let ledOther = document.getElementById('led-other-sync-status');
+            if (ledOther) {
+                if (otherUsersAreSending) {
+                    ledOther.classList.remove('d-none');
+                } else {
+                    ledOther.classList.add('d-none');
+                }
+            }
             
             if (!sessions || sessions.length === 0) {
                 listContainer.innerHTML = `
@@ -10480,6 +10646,7 @@
                                     p[itemIndex].estadoSincronizacion = "Sincronizado";
                                     exitososCount++;
                                     removerDeColaOffline(res.timestampLocal);
+                                    if(typeof triggerLedFlash === 'function') triggerLedFlash();
                                 } else {
                                     let isNetErr = !res || (res.mensaje && String(res.mensaje).startsWith("NETWORK_ERROR"));
                                     let isBusy = res.mensaje && (
@@ -10502,6 +10669,7 @@
                                     } else {
                                         p[itemIndex].estadoSincronizacion = "Rechazado";
                                         removerDeColaOffline(res.timestampLocal);
+                                    if(typeof triggerLedFlash === 'function') triggerLedFlash();
                                         
                                         let dniPadded = String(p[itemIndex].dni).trim().padStart(8, '0');
                                         let estudiante = (datosMemoria['Estudiantes'] || []).find(f => String(f[0]).replace(/['"]/g, '').trim().padStart(8, '0') === dniPadded);
@@ -12482,6 +12650,30 @@ async function descargarConsolidadoIncidenciasPDF(dni, fInicio, fFin) {
             }
         }
 
+        function triggerLedFlash() {
+            let led = document.getElementById('led-sync-status');
+            let ledOther = document.getElementById('led-other-sync-status');
+            
+            // Si hay otros usuarios enviando y no somos nosotros los que tenemos el turno de subida
+            if (window.otrosUsuariosEnviando && !window.tengoTurnoSync && ledOther) {
+                ledOther.classList.remove('led-pulse-slow-yellow');
+                ledOther.classList.add('led-flash-fast-yellow');
+                if (window.ledOtherFlashTimeout) clearTimeout(window.ledOtherFlashTimeout);
+                window.ledOtherFlashTimeout = setTimeout(() => {
+                    ledOther.classList.remove('led-flash-fast-yellow');
+                    ledOther.classList.add('led-pulse-slow-yellow');
+                }, 3000);
+            } else if (led) {
+                led.classList.remove('led-pulse-slow');
+                led.classList.add('led-flash-fast');
+                if (window.ledFlashTimeout) clearTimeout(window.ledFlashTimeout);
+                window.ledFlashTimeout = setTimeout(() => {
+                    led.classList.remove('led-flash-fast');
+                    led.classList.add('led-pulse-slow');
+                }, 3000);
+            }
+        }
+
         function actualizarBadgeLicencia() {
             let container = document.getElementById('licencia-badge-container');
             if(!container) return;
@@ -12494,7 +12686,20 @@ async function descargarConsolidadoIncidenciasPDF(dni, fInicio, fFin) {
             }
             
             if(!habilitado || !fFin) {
-                container.classList.add('d-none');
+                container.classList.remove('d-none');
+                container.innerHTML = `
+                    <div class="badge bg-secondary p-2 shadow-sm rounded-pill d-flex align-items-center gap-1 text-white fw-bold" style="font-size: 0.75rem; border: 1px solid rgba(255,255,255,0.15); background-color: #495057 !important;">
+                        <i class="fa-solid fa-circle-check text-success"></i>
+                        <span>Sistema Activo</span>
+                        <div id="led-sync-status" class="led-indicator-green led-pulse-slow ms-1" title="Estado de Recepción de Datos (Parpadea al recibir nuevos registros)"></div>
+                        <div id="led-other-sync-status" class="led-indicator-yellow led-pulse-slow-yellow ms-1 d-none" title="Otros usuarios transmitiendo (Detección de recepción)"></div>
+                    </div>
+                `;
+                let ledOther = document.getElementById('led-other-sync-status');
+                if (ledOther) {
+                    if (window.otrosUsuariosEnviando) ledOther.classList.remove('d-none');
+                    else ledOther.classList.add('d-none');
+                }
                 return;
             }
             
@@ -12514,6 +12719,8 @@ async function descargarConsolidadoIncidenciasPDF(dni, fInicio, fFin) {
                     <div class="badge bg-danger p-2 shadow-sm rounded-pill d-flex align-items-center gap-1 text-white fw-bold animate__animated animate__flash animate__infinite animate__slow" style="font-size: 0.75rem; border: 1px solid rgba(255,255,255,0.25);">
                         <i class="fa-solid fa-triangle-exclamation"></i>
                         <span>¡Licencia por vencer: ${diffDays} ${diffDays === 1 ? 'día' : 'días'}!</span>
+                        <div id="led-sync-status" class="led-indicator-green led-pulse-slow ms-1" title="Estado de Recepción de Datos (Parpadea al recibir nuevos registros)"></div>
+                        <div id="led-other-sync-status" class="led-indicator-yellow led-pulse-slow-yellow ms-1 d-none" title="Otros usuarios transmitiendo (Detección de recepción)"></div>
                     </div>
                 `;
             } else {
@@ -12521,8 +12728,17 @@ async function descargarConsolidadoIncidenciasPDF(dni, fInicio, fFin) {
                     <div class="badge bg-success p-2 shadow-sm rounded-pill d-flex align-items-center gap-1 text-white fw-bold" style="font-size: 0.75rem; background-color: #198754 !important;">
                         <i class="fa-solid fa-clock"></i>
                         <span>Licencia: ${diffDays} días restantes</span>
+                        <div id="led-sync-status" class="led-indicator-green led-pulse-slow ms-1" title="Estado de Recepción de Datos (Parpadea al recibir nuevos registros)"></div>
+                        <div id="led-other-sync-status" class="led-indicator-yellow led-pulse-slow-yellow ms-1 d-none" title="Otros usuarios transmitiendo (Detección de recepción)"></div>
                     </div>
                 `;
+            }
+
+            // Restaurar visibilidad del LED amarillo si otros usuarios están enviando
+            let ledOther = document.getElementById('led-other-sync-status');
+            if (ledOther) {
+                if (window.otrosUsuariosEnviando) ledOther.classList.remove('d-none');
+                else ledOther.classList.add('d-none');
             }
         }
 
