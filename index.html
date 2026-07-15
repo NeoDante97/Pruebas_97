@@ -125,10 +125,9 @@
         #dashboard-section { display: flex; min-height: 100vh; position: relative; }
         
         /* ESTILOS DEL MENÚ LATERAL Y DESPLEGABLES - REDISEÑO PROFESIONAL Y MODERNO */
-        /* ESTILOS DEL MENÚ LATERAL Y DESPLEGABLES - REDISEÑO PROFESIONAL Y MODERNO */
         .sidebar { 
             width: 260px; 
-            background: linear-gradient(180deg, #1e2229 0%, #111418 100%); 
+            background-color: #212529; 
             color: white; 
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
             display: flex; 
@@ -138,19 +137,19 @@
             left: 0; 
             top: 0; 
             z-index: 1050;
-            box-shadow: 4px 0 25px rgba(0, 0, 0, 0.25);
+            box-shadow: 4px 0 25px rgba(0, 0, 0, 0.2);
             overflow-y: auto;
         }
         .sidebar::-webkit-scrollbar { width: 6px; }
         .sidebar::-webkit-scrollbar-track { background: transparent; }
-        .sidebar::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.08); border-radius: 4px; }
-        .sidebar::-webkit-scrollbar-thumb:hover { background: rgba(13, 110, 253, 0.4); }
+        .sidebar::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.1); border-radius: 4px; }
+        .sidebar::-webkit-scrollbar-thumb:hover { background: rgba(13, 110, 253, 0.5); }
 
         .sidebar.hidden-desktop { transform: translateX(-260px); }
         
         .sidebar-header { 
             padding: 24px 20px; 
-            background-color: rgba(0, 0, 0, 0.2); 
+            background-color: #1a1e21; 
             text-align: center; 
             border-bottom: 1px solid rgba(255, 255, 255, 0.05); 
             position: relative;
@@ -162,7 +161,7 @@
             left: 10%;
             width: 80%;
             height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(13, 110, 253, 0.4), transparent);
+            background: linear-gradient(90deg, transparent, rgba(13, 110, 253, 0.5), transparent);
         }
         
         .nav-link { 
@@ -170,9 +169,9 @@
             padding: 12px 18px; 
             cursor: pointer; 
             text-decoration: none; 
-            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1); 
-            border-radius: 10px;
-            margin: 3px 12px;
+            transition: all 0.25s ease; 
+            border-radius: 8px;
+            margin: 2px 8px;
             display: flex;
             align-items: center;
             font-size: 0.92rem;
@@ -181,13 +180,13 @@
         }
         .nav-link:hover { 
             color: #fff; 
-            background-color: rgba(255, 255, 255, 0.06); 
+            background-color: rgba(255, 255, 255, 0.05); 
             transform: translateX(4px);
         }
         .nav-link.active { 
             color: #fff !important; 
             background: linear-gradient(135deg, #0d6efd, #0b5ed7) !important; 
-            box-shadow: 0 4px 14px rgba(13, 110, 253, 0.35);
+            box-shadow: 0 4px 12px rgba(13, 110, 253, 0.35);
             font-weight: 600;
         }
         .nav-link i.icon-main { 
@@ -216,18 +215,18 @@
 
         /* Estilo de submenús colapsables */
         .collapse > div {
-            background-color: rgba(0, 0, 0, 0.2) !important;
-            border-radius: 10px;
-            margin: 4px 12px 10px 12px !important;
+            background-color: rgba(0, 0, 0, 0.15) !important;
+            border-radius: 8px;
+            margin: 4px 8px 10px 8px !important;
             padding: 6px 0 !important;
-            border-left: 3px solid rgba(13, 110, 253, 0.6);
+            border-left: 3px solid rgba(13, 110, 253, 0.5);
         }
         .collapse > div .nav-link {
             padding: 8px 16px 8px 24px !important;
-            margin: 2px 0 !important;
+            margin: 1px 0 !important;
             font-size: 0.85rem !important;
             color: #adb5bd;
-            border-radius: 0 10px 10px 0 !important;
+            border-radius: 0 8px 8px 0 !important;
         }
         .collapse > div .nav-link:hover {
             background-color: rgba(255, 255, 255, 0.05) !important;
@@ -258,7 +257,7 @@
         .sidebar .mt-auto .nav-link {
             font-size: 0.85rem !important;
             padding: 10px 15px !important;
-            border-radius: 8px !important;
+            border-radius: 6px !important;
         }
         .sidebar .mt-auto .nav-link.text-warning:hover {
             background-color: rgba(255, 193, 7, 0.1) !important;
@@ -270,65 +269,71 @@
         }
         
         /* CONTENIDO PRINCIPAL */
-        .main-content {
-            flex-grow: 1;
-            padding: 24px;
-            margin-left: 260px;
-            width: calc(100% - 260px);
-            height: 100vh;
-            overflow-y: auto;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            background-color: #f4f6f9;
-        }
+        .main-content { flex-grow: 1; padding: 20px; margin-left: 260px; width: calc(100% - 260px); height: 100vh; overflow-y: auto; transition: all 0.3s ease; }
         .main-content.expanded { margin-left: 0; width: 100%; }
         
-        .top-bar {
-            background: rgba(255, 255, 255, 0.85) !important;
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(0, 0, 0, 0.06);
-            padding: 14px 24px;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
-            margin-bottom: 24px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-        .card-view {
-            background: white;
-            border-radius: 20px;
-            padding: 24px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
-            border: 1px solid rgba(0, 0, 0, 0.02);
-            width: 100%;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .card-view:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.06);
-        }
+        .top-bar { background: white; padding: 15px 20px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+        .card-view { background: white; border-radius: 12px; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); width: 100%; }
         .d-none { display: none !important; }
         
         /* ESCÁNER QR */
-        #reader { width: 100%; max-width: 500px; margin: 0 auto; border-radius: 16px; overflow: hidden; border: 2px solid #0d6efd; background-color: #000; box-shadow: 0 10px 30px rgba(0,0,0,0.15); }
+        #reader { width: 100%; max-width: 500px; margin: 0 auto; border-radius: 10px; overflow: hidden; border: 2px solid #0d6efd; background-color: #000; }
         #reader video { object-fit: cover; }
         
         /* MEDIA QUERIES CELULARES */
         .sidebar-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1040; opacity: 0; transition: opacity 0.3s; }
-        @media (max-width: 768px) {
+        @media (max-width: 992px) {
             .sidebar { transform: translateX(-100%); } .sidebar.show-mobile { transform: translateX(0); } 
             .main-content { margin-left: 0; width: 100%; padding: 10px; }
             .sidebar-overlay.show-overlay { display: block; opacity: 1; }
             .top-bar h4 { font-size: 1.2rem; } .user-badge { font-size: 0.85rem; }
             .card-view { padding: 15px; }
             .table-responsive { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+            
+            /* Prevenir deformación y encogimiento excesivo en tablas de datos normales */
+            .table-responsive table:not(.tabla-matricial) {
+                min-width: 800px !important;
+            }
+            .table-responsive table:not(.tabla-matricial) th,
+            .table-responsive table:not(.tabla-matricial) td {
+                font-size: 0.85rem !important;
+                padding: 8px 6px !important;
+            }
+            
             #filtro-reporte-bar, #filtro-reporte-aux-bar, #filtro-reporte-doc-bar { flex-direction: column; align-items: stretch !important; border-radius: 15px !important; }
             #filtro-reporte-bar .d-flex, #filtro-reporte-aux-bar .d-flex, #filtro-reporte-doc-bar .d-flex { margin-bottom: 10px; width: 100%; justify-content: space-between;}
             #filtro-reporte-bar input, #filtro-reporte-bar select, #filtro-reporte-aux-bar input, #filtro-reporte-aux-bar select, #filtro-reporte-doc-bar input, #filtro-reporte-doc-bar select { width: 65% !important; }
             #filtro-reporte-bar button, #filtro-reporte-aux-bar button, #filtro-reporte-doc-bar button { width: 100%; }
+        }
+
+        /* Estilización visible y moderna para barras de desplazamiento horizontal */
+        .table-responsive::-webkit-scrollbar {
+            height: 6px;
+        }
+        .table-responsive::-webkit-scrollbar-thumb {
+            background: rgba(13, 110, 253, 0.35);
+            border-radius: 3px;
+        }
+        .table-responsive::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.05);
+        }
+
+        /* Adaptación de barra superior en teléfonos pequeños */
+        @media (max-width: 576px) {
+            .top-bar {
+                flex-direction: column;
+                align-items: stretch !important;
+                gap: 12px;
+                padding: 12px 15px;
+            }
+            .top-bar > div {
+                justify-content: space-between;
+                width: 100%;
+            }
+            .top-bar .user-badge {
+                margin-right: 0 !important;
+                font-size: 0.8rem;
+            }
         }
         
         /* ESTILOS REPORTE MATRICIAL */
@@ -336,47 +341,62 @@
         .tabla-matricial th, .tabla-matricial td { border: 2px solid black !important; padding: 4px; vertical-align: middle; color: black; font-size: 0.9rem;}
         .tabla-matricial thead th { font-weight: bold; background-color: white; border-bottom: 3px solid black !important; }
         
-        /* ADAPTACIÓN PARA CELULARES (REPORTE AUXILIAR Y MATRICIALES COMPACTOS) */
-        @media (max-width: 768px) {
+        /* ADAPTACIÓN DE MATRICIALES PARA CELULARES Y TABLETAS (MÁS VISIBLES Y AMPLIOS) */
+        @media (max-width: 992px) {
             .d-none-mobile {
                 display: none !important;
             }
             .tabla-matricial {
                 width: 100% !important;
                 min-width: 100% !important;
-                font-size: 0.68rem !important;
+                font-size: 0.76rem !important;
             }
             .tabla-matricial th, .tabla-matricial td {
-                padding: 2px 1px !important;
-                font-size: 0.68rem !important;
+                padding: 4px 2px !important;
+                font-size: 0.76rem !important;
             }
             .tabla-matricial th {
-                font-size: 0.65rem !important;
-                line-height: 1.1 !important;
+                font-size: 0.73rem !important;
+                line-height: 1.15 !important;
             }
             .tabla-matricial td.text-start {
-                max-width: 85px !important;
+                max-width: 110px !important;
                 overflow: hidden;
                 text-overflow: ellipsis;
                 white-space: nowrap;
-                font-size: 0.68rem !important;
+                font-size: 0.76rem !important;
             }
             .progress-bar-custom {
-                height: 10px !important;
+                height: 12px !important;
             }
             .progress-text {
-                font-size: 0.55rem !important;
-                line-height: 10px !important;
+                font-size: 0.65rem !important;
+                line-height: 12px !important;
             }
             .tabla-matricial i {
-                font-size: 0.8rem !important;
+                font-size: 0.95rem !important;
             }
             .tabla-matricial .fs-5 {
-                font-size: 0.75rem !important;
+                font-size: 0.85rem !important;
             }
             .tabla-matricial td .btn, .tabla-matricial td .badge {
-                font-size: 0.58rem !important;
-                padding: 2px 3px !important;
+                font-size: 0.68rem !important;
+                padding: 3px 5px !important;
+            }
+        }
+        
+        /* Ajuste fino para celulares extra pequeños */
+        @media (max-width: 576px) {
+            .tabla-matricial {
+                font-size: 0.71rem !important;
+            }
+            .tabla-matricial th, .tabla-matricial td {
+                padding: 3px 1px !important;
+                font-size: 0.71rem !important;
+            }
+            .tabla-matricial td.text-start {
+                max-width: 90px !important;
+                font-size: 0.71rem !important;
             }
         }
         
@@ -1064,7 +1084,7 @@
             
             <div class="px-2 mt-auto mb-3">
                 <a class="nav-link text-warning w-100 fw-bold mb-2" onclick="abrirModalCambiarPass()"><i class="fa-solid fa-key icon-main me-1"></i> Cambiar Mi Contraseña</a>
-                <a class="nav-link text-danger w-100 fw-bold" style="cursor: pointer;" onclick="cerrarSesion()"><i class="fa-solid fa-right-from-bracket icon-main me-1"></i> Salir del Sistema</a>
+                <a class="nav-link text-danger w-100 fw-bold" onclick="confirmarCerrarSesion()"><i class="fa-solid fa-right-from-bracket icon-main me-1"></i> Salir del Sistema</a>
             </div>
         </div>
 
@@ -1083,7 +1103,7 @@
                     </div>
                     <div id="licencia-badge-container" class="me-3 d-none"></div>
                     <div class="fw-bold text-primary user-badge me-3"><i class="fa-solid fa-circle-user me-2"></i><span id="user-name-display"></span></div>
-                    <button class="btn btn-outline-danger btn-sm fw-bold shadow-sm d-print-none" onclick="cerrarSesion()"><i class="fa-solid fa-power-off"></i> Salir</button>
+                    <button class="btn btn-outline-danger btn-sm fw-bold shadow-sm d-print-none" onclick="confirmarCerrarSesion()"><i class="fa-solid fa-power-off"></i> Salir</button>
                 </div>
             </div>
 
@@ -1195,13 +1215,7 @@
             </div>
 
             <div id="v-admin" class="vista-modulo d-none">
-                <div class="d-flex justify-content-between mb-3 align-items-center flex-wrap gap-2">
-                    <h5 class="mb-0 fw-bold">Lista de Administradores</h5>
-                    <div class="d-flex gap-2">
-                        <button class="btn btn-outline-dark fw-bold shadow-sm" onclick="cargarTabla('Administradores', true)"><i class="fa-solid fa-sync"></i> Actualizar</button>
-                        <button class="btn btn-primary fw-bold shadow-sm admin-btn d-none" onclick="abrirModalNuevo('Administradores')"><i class="fa-solid fa-plus"></i> Registro Manual</button>
-                    </div>
-                </div>
+                <div class="d-flex justify-content-between mb-3 align-items-center flex-wrap gap-2"><h5 class="mb-0 fw-bold">Lista de Administradores</h5><button class="btn btn-primary fw-bold shadow-sm admin-btn d-none" onclick="abrirModalNuevo('Administradores')"><i class="fa-solid fa-plus"></i> Registro Manual</button></div>
                 <div class="card card-view table-responsive"><table class="table table-hover align-middle"><thead class="table-dark"><tr><th>DNI</th><th>Nombres</th><th>Estado</th><th class="text-center admin-btn d-none">Acciones</th></tr></thead><tbody id="tb-Administradores"></tbody></table></div>
             </div>
 
@@ -1209,7 +1223,6 @@
                 <div class="d-flex justify-content-between mb-3 align-items-center flex-wrap gap-2">
                     <h5 class="mb-0 fw-bold">Lista de Docentes</h5>
                     <div class="d-flex align-items-center gap-1">
-                        <button class="btn btn-outline-dark fw-bold shadow-sm" onclick="cargarTabla('Docentes', true).then(() => filtrarDocentes())"><i class="fa-solid fa-sync"></i> Actualizar</button>
                         <button class="btn btn-success fw-bold shadow-sm admin-btn d-none" onclick="exportarExcel('Docentes')"><i class="fa-solid fa-file-excel"></i> Excel</button>
                         <button class="btn btn-danger fw-bold shadow-sm admin-doc-btn pdf-btn-carnets d-none" onclick="prepararDescargaGrupoPDF('Docentes')"><i class="fa-solid fa-file-pdf"></i> PDF Carnets</button>
                         <span class="badge bg-dark fs-6 admin-btn d-none me-2" id="count-Docentes">Total: 0</span>
@@ -1241,7 +1254,6 @@
                 <div class="d-flex justify-content-between mb-3 align-items-center flex-wrap gap-2">
                     <h5 class="mb-0 fw-bold">Horario de Ingreso y Salida (Docentes)</h5>
                     <div class="d-flex gap-1">
-                        <button class="btn btn-outline-dark fw-bold shadow-sm" onclick="cargarTabla('Horario_Docentes', true).then(() => filtrarHorariosDocentes())"><i class="fa-solid fa-sync"></i> Actualizar</button>
                         <button class="btn btn-danger fw-bold shadow-sm admin-btn d-none" id="btn-eliminar-hdoc" onclick="eliminarSeleccionados('Horario_Docentes')"><i class="fa-solid fa-trash-can"></i> Eliminar Seleccionados</button>
                         <button class="btn btn-primary fw-bold shadow-sm admin-btn d-none" onclick="abrirModalNuevo('Horario_Docentes')"><i class="fa-solid fa-plus"></i> Manual</button>
                         <button class="btn btn-success fw-bold shadow-sm admin-btn d-none" onclick="abrirModalMasivo('Horario_Docentes')"><i class="fa-solid fa-upload"></i> Masivo</button>
@@ -1378,11 +1390,7 @@
             <div id="v-auxiliares" class="vista-modulo d-none">
                 <div class="d-flex justify-content-between mb-3 align-items-center flex-wrap gap-2">
                     <h5 class="mb-0 fw-bold">Lista de Auxiliares</h5>
-                    <div class="d-flex gap-1">
-                        <button class="btn btn-outline-dark fw-bold shadow-sm" onclick="cargarTabla('Auxiliares', true)"><i class="fa-solid fa-sync"></i> Actualizar</button>
-                        <button class="btn btn-primary fw-bold shadow-sm admin-btn d-none" onclick="abrirModalNuevo('Auxiliares')"><i class="fa-solid fa-plus"></i> Manual</button>
-                        <button class="btn btn-success fw-bold shadow-sm admin-btn d-none" onclick="abrirModalMasivo('Auxiliares')"><i class="fa-solid fa-upload"></i> Masivo</button>
-                    </div>
+                    <div><button class="btn btn-primary fw-bold shadow-sm me-1 admin-btn d-none" onclick="abrirModalNuevo('Auxiliares')"><i class="fa-solid fa-plus"></i> Manual</button><button class="btn btn-success fw-bold shadow-sm admin-btn d-none" onclick="abrirModalMasivo('Auxiliares')"><i class="fa-solid fa-upload"></i> Masivo</button></div>
                 </div>
                 <div class="card card-view table-responsive">
                     <table class="table table-hover align-middle">
@@ -1393,13 +1401,7 @@
             </div>
 
             <div id="v-area" class="vista-modulo d-none">
-                <div class="d-flex justify-content-between mb-3 align-items-center flex-wrap gap-2">
-                    <h5 class="mb-0 fw-bold">Áreas Curriculares</h5>
-                    <div class="d-flex gap-1">
-                        <button class="btn btn-outline-dark fw-bold shadow-sm" onclick="cargarTabla('Areas', true)"><i class="fa-solid fa-sync"></i> Actualizar</button>
-                        <button class="btn btn-primary fw-bold shadow-sm admin-btn d-none" onclick="abrirModalNuevo('Areas')"><i class="fa-solid fa-plus"></i> Nueva Área</button>
-                    </div>
-                </div>
+                <div class="d-flex justify-content-between mb-3 align-items-center flex-wrap gap-2"><h5 class="mb-0 fw-bold">Áreas Curriculares</h5><button class="btn btn-primary fw-bold shadow-sm admin-btn d-none" onclick="abrirModalNuevo('Areas')"><i class="fa-solid fa-plus"></i> Nueva Área</button></div>
                 <div class="card card-view table-responsive"><table class="table table-hover align-middle"><thead class="table-dark"><tr><th>Nombre del Área Registrada</th><th class="text-center admin-btn d-none">Acciones</th></tr></thead><tbody id="tb-Areas"></tbody></table></div>
             </div>
 
@@ -1407,7 +1409,6 @@
                 <div class="d-flex justify-content-between mb-3 align-items-center flex-wrap gap-2">
                     <h5 class="mb-0 fw-bold">Horarios de Alumnos a Clases</h5>
                     <div class="d-flex gap-1">
-                        <button class="btn btn-outline-dark fw-bold shadow-sm" onclick="cargarTabla('Horarios', true).then(() => filtrarHorarios())"><i class="fa-solid fa-sync"></i> Actualizar</button>
                         <button class="btn btn-primary fw-bold shadow-sm admin-btn d-none" onclick="abrirModalNuevo('Horarios')"><i class="fa-solid fa-plus"></i> Manual</button>
                         <button class="btn btn-success fw-bold shadow-sm admin-btn d-none" onclick="abrirModalMasivo('Horarios')"><i class="fa-solid fa-upload"></i> Masivo</button>
                     </div>
@@ -1421,13 +1422,7 @@
             </div>
 
             <div id="v-feriados" class="vista-modulo d-none">
-                <div class="d-flex justify-content-between mb-3 align-items-center flex-wrap gap-2">
-                    <h5 class="mb-0 fw-bold">Días Feriados / No Laborables</h5>
-                    <div class="d-flex gap-1">
-                        <button class="btn btn-outline-dark fw-bold shadow-sm" onclick="cargarTabla('Feriados', true)"><i class="fa-solid fa-sync"></i> Actualizar</button>
-                        <button class="btn btn-primary fw-bold shadow-sm admin-btn d-none" onclick="abrirModalNuevo('Feriados')"><i class="fa-solid fa-plus"></i> Nuevo Feriado</button>
-                    </div>
-                </div>
+                <div class="d-flex justify-content-between mb-3 align-items-center flex-wrap gap-2"><h5 class="mb-0 fw-bold">Días Feriados / No Laborables</h5><button class="btn btn-primary fw-bold shadow-sm admin-btn d-none" onclick="abrirModalNuevo('Feriados')"><i class="fa-solid fa-plus"></i> Nuevo Feriado</button></div>
                 <div class="card card-view table-responsive"><table class="table table-hover align-middle"><thead class="table-dark"><tr><th>Fecha del Feriado</th><th>Motivo / Descripción</th><th class="text-center admin-btn d-none">Acciones</th></tr></thead><tbody id="tb-Feriados"></tbody></table></div>
             </div>
 
@@ -1456,7 +1451,6 @@
                 <div class="d-flex justify-content-between mb-3 align-items-center flex-wrap gap-2">
                     <h5 class="mb-0 fw-bold">Registro Auxiliar (Entradas)</h5>
                     <div class="d-flex gap-2">
-                        <button class="btn btn-outline-dark fw-bold shadow-sm" onclick="cargarTabla('Asistencia_Auxiliar', true).then(() => filtrarAsistencias('tb-Asistencia_Auxiliar', 'buscar-asis-aux-dni', 'buscar-asis-aux-fecha'))"><i class="fa-solid fa-sync"></i> Actualizar</button>
                         <button class="btn btn-warning fw-bold shadow-sm admin-btn d-none" onclick="revisarDuplicados('Asistencia_Auxiliar')"><i class="fa-solid fa-magnifying-glass-plus"></i> Duplicados</button>
                         <button class="btn btn-success fw-bold shadow-sm admin-btn d-none" onclick="abrirModalNuevo('Asistencia_Auxiliar')"><i class="fa-solid fa-plus"></i> Agregar Manual</button>
                         <button class="btn btn-danger fw-bold shadow-sm admin-btn d-none" id="btn-delete-selected-Asistencia_Auxiliar" onclick="eliminarSeleccionados('Asistencia_Auxiliar')" disabled><i class="fa-solid fa-trash"></i> Eliminar Seleccionados</button>
@@ -1478,10 +1472,7 @@
             <div id="v-incidencias" class="vista-modulo d-none">
                 <div class="d-flex justify-content-between mb-3 align-items-center flex-wrap gap-2">
                     <h5 class="mb-0 fw-bold">Registro de Incidencias</h5>
-                    <div class="d-flex gap-2">
-                        <button class="btn btn-outline-dark fw-bold shadow-sm" onclick="cargarTabla('Incidencias', true).then(() => filtrarIncidencias())"><i class="fa-solid fa-sync"></i> Actualizar</button>
-                        <button class="btn btn-danger fw-bold shadow-sm admin-doc-btn d-none" id="btn-add-incidencia" onclick="abrirModalIncidencia()"><i class="fa-solid fa-plus"></i> Nueva Incidencia</button>
-                    </div>
+                    <button class="btn btn-danger fw-bold shadow-sm admin-doc-btn d-none" id="btn-add-incidencia" onclick="abrirModalIncidencia()"><i class="fa-solid fa-plus"></i> Nueva Incidencia</button>
                 </div>
                 <div class="row mb-3 g-2">
                     <div class="col-12 col-md-4">
@@ -1524,7 +1515,6 @@
                         </div>
                     </div>
                     <div class="d-flex align-items-center gap-1">
-                        <button class="btn btn-outline-dark fw-bold shadow-sm" onclick="cargarTabla('Estudiantes', true).then(() => filtrarEstudiantes())"><i class="fa-solid fa-sync"></i> Actualizar</button>
                         <button class="btn btn-success fw-bold shadow-sm" onclick="exportarExcel('Estudiantes')"><i class="fa-solid fa-file-excel"></i> Excel</button>
                         <button class="btn btn-danger fw-bold shadow-sm pdf-btn-carnets" id="btn-pdf-carnets" onclick="abrirModalDescargaCarnets()"><i class="fa-solid fa-file-pdf"></i> PDF Carnets</button>
                         <button class="btn btn-warning fw-bold shadow-sm" id="btn-manual-prefetch" onclick="ejecutarPrefetchManual()"><i class="fa-solid fa-sync"></i> Optimizar Carnets</button>
@@ -1631,7 +1621,6 @@
                 <div class="d-flex justify-content-between mb-3 align-items-center flex-wrap gap-2">
                     <h5 class="mb-0 fw-bold">Gestión de Apoderados</h5>
                     <div class="d-flex gap-2 align-items-center">
-                        <button class="btn btn-outline-dark fw-bold shadow-sm" onclick="cargarTabla('Apoderados', true).then(() => filtrarApoderados())"><i class="fa-solid fa-sync"></i> Actualizar</button>
                         <span class="badge bg-dark fs-6" id="count-Apoderados">Total: 0</span>
                         <button class="btn btn-primary fw-bold shadow-sm admin-btn d-none" id="btn-add-apoderados" onclick="abrirModalNuevo('Apoderados')"><i class="fa-solid fa-plus"></i> Manual</button>
                         <button class="btn btn-success fw-bold shadow-sm admin-btn d-none" id="btn-upload-apoderados" onclick="abrirModalMasivo('Apoderados')"><i class="fa-solid fa-upload"></i> Masivo</button>
@@ -1801,10 +1790,7 @@
             <div id="v-permisos" class="vista-modulo d-none">
                 <div class="d-flex justify-content-between mb-3 align-items-center flex-wrap gap-2">
                     <h5 class="mb-0 fw-bold"><i class="fa-solid fa-notes-medical text-info"></i> Registro de Permisos de Estudiantes</h5>
-                    <div class="d-flex gap-2">
-                        <button class="btn btn-outline-dark fw-bold shadow-sm" onclick="cargarTabla('Permisos', true).then(() => filtrarPermisos())"><i class="fa-solid fa-sync"></i> Actualizar</button>
-                        <button class="btn btn-info text-dark fw-bold shadow-sm admin-aux-btn" id="btn-add-permiso" onclick="abrirModalPermisoNuevo()"><i class="fa-solid fa-plus"></i> Nuevo Permiso</button>
-                    </div>
+                    <button class="btn btn-info text-dark fw-bold shadow-sm admin-aux-btn" id="btn-add-permiso" onclick="abrirModalPermisoNuevo()"><i class="fa-solid fa-plus"></i> Nuevo Permiso</button>
                 </div>
                 
                 <div class="row g-2 mb-3">
@@ -1852,10 +1838,7 @@
             <div id="v-permisos-docentes" class="vista-modulo d-none">
                 <div class="d-flex justify-content-between mb-3 align-items-center flex-wrap gap-2">
                     <h5 class="mb-0 fw-bold"><i class="fa-solid fa-notes-medical text-info"></i> Registro de Permisos de Docentes</h5>
-                    <div class="d-flex gap-2">
-                        <button class="btn btn-outline-dark fw-bold shadow-sm" onclick="cargarTabla('Permisos_Docentes', true).then(() => filtrarPermisosDocentes())"><i class="fa-solid fa-sync"></i> Actualizar</button>
-                        <button class="btn btn-info text-dark fw-bold shadow-sm admin-btn d-none" id="btn-add-permiso-doc" onclick="abrirModalPermisoDocenteNuevo()"><i class="fa-solid fa-plus"></i> Nuevo Permiso Docente</button>
-                    </div>
+                    <button class="btn btn-info text-dark fw-bold shadow-sm admin-btn d-none" id="btn-add-permiso-doc" onclick="abrirModalPermisoDocenteNuevo()"><i class="fa-solid fa-plus"></i> Nuevo Permiso Docente</button>
                 </div>
 
                 <div class="row g-2 mb-3">
@@ -1892,10 +1875,7 @@
             <div id="v-reporte" class="card-view vista-modulo d-none" style="background-color: white;">
                 <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2 d-print-none">
                     <h4 class="fw-bold mb-0 text-primary"><i class="fa-solid fa-table-list"></i> Reporte Estudiante</h4>
-                    <div class="d-flex gap-2">
-                        <button class="btn btn-outline-dark fw-bold shadow-sm" onclick="refrescarReporteEstudiantes()"><i class="fa-solid fa-sync"></i> Actualizar</button>
-                        <button class="btn btn-outline-primary fw-bold shadow-sm" onclick="window.print()"><i class="fa-solid fa-print"></i> Generar Reporte</button>
-                    </div>
+                    <button class="btn btn-outline-primary fw-bold" onclick="window.print()"><i class="fa-solid fa-print"></i> Generar Reporte</button>
                 </div>
                 
                 <div id="filtro-reporte-bar" class="p-2 mb-4 d-flex align-items-center justify-content-between flex-wrap d-print-none" style="border: 2px solid black; border-radius: 35px; background-color: #ffffff; width: fit-content; max-width: 1000px; margin: 0 auto;">
@@ -1940,7 +1920,6 @@
                 <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2 d-print-none">
                     <h4 class="fw-bold mb-0 text-success"><i class="fa-solid fa-clipboard-user"></i> Reporte Auxiliar</h4>
                     <div class="d-flex gap-2">
-                        <button class="btn btn-outline-dark fw-bold shadow-sm" onclick="refrescarReporteAuxiliar()" style="border-radius: 20px; padding: 6px 20px;"><i class="fa-solid fa-sync"></i> Actualizar</button>
                         <button id="btn-registrar-masivo-aux" class="btn btn-outline-info fw-bold d-none" onclick="abrirRegistroMasivoAuxiliar()" style="border-radius: 20px; padding: 6px 20px;">
                             <i class="fa-solid fa-clock-rotate-left"></i> Hora para Todos
                         </button>
@@ -1994,8 +1973,7 @@
                 <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2 d-print-none">
                     <h4 class="fw-bold mb-0 text-danger"><i class="fa-solid fa-user-slash"></i> Reporte de Faltas</h4>
                     <div class="d-flex gap-2">
-                        <button class="btn btn-outline-dark fw-bold shadow-sm" onclick="refrescarReporteFaltas()"><i class="fa-solid fa-sync"></i> Actualizar</button>
-                        <button class="btn btn-outline-danger fw-bold shadow-sm" onclick="imprimirReporteFaltas()"><i class="fa-solid fa-print"></i> Imprimir</button>
+                        <button class="btn btn-outline-danger fw-bold" onclick="imprimirReporteFaltas()"><i class="fa-solid fa-print"></i> Imprimir</button>
                     </div>
                 </div>
                 
@@ -2198,7 +2176,6 @@
                 <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2 d-print-none">
                     <h4 class="fw-bold mb-0 text-dark"><i class="fa-solid fa-chart-pie text-primary"></i> Reporte de Control de Personal Docente</h4>
                     <div class="d-flex gap-2 align-items-center">
-                        <button class="btn btn-outline-dark fw-bold shadow-sm" onclick="refrescarReporteDocente()"><i class="fa-solid fa-sync"></i> Actualizar</button>
                         <button class="btn btn-danger fw-bold shadow-sm" onclick="descargarConsolidadoDocentePDF()"><i class="fa-solid fa-file-pdf"></i> Consolidado PDF</button>
                         <button class="btn btn-primary fw-bold shadow-sm" onclick="imprimirTablaDocentesHorizontal()"><i class="fa-solid fa-table"></i> Imprimir Tabla A4 Horizontal</button>
                         <button class="btn btn-outline-dark fw-bold shadow-sm" onclick="window.print()"><i class="fa-solid fa-print"></i> Imprimir Todo</button>
@@ -2799,7 +2776,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
-        const URL_API = "https://script.google.com/macros/s/AKfycby_FZPbyMI8XoSfVq0xgxjP5nt-nD2L91zm07lmpx7o8DpTmnVTi2jnJxwW1r-cIKXW/exec";
+        const URL_API = "https://script.google.com/macros/s/AKfycbz5zGBKpkChg-dil4SFEykEpI-FdEm-ElzWpnFyZwoUzOEpIYoWrVLzOJCFOdb4OfLu/exec";
 
         let datosMemoria = {}; let fotosCache = {}; let qrsCache = {}; let editandoID = null; let reporteGlobalData = {}; let rolActual = ''; let usuarioDniActual = '';
         window.colaSincronizarAuxiliar = JSON.parse(localStorage.getItem('colaSincronizarAuxiliar') || '[]');
@@ -2980,7 +2957,7 @@
             
             let btnMenu = document.getElementById('btn-toggle-menu'); 
             btnMenu.innerHTML = '<i class="fa-solid fa-arrow-left"></i> Salir'; 
-            btnMenu.setAttribute('onclick', 'location.reload()'); 
+            btnMenu.setAttribute('onclick', 'confirmarCerrarSesion()'); 
             btnMenu.classList.replace('btn-light', 'btn-danger'); 
             btnMenu.classList.add('text-white');
             
@@ -3101,31 +3078,7 @@
                     if(r.exito) { 
                         progressBar.style.width = '100%'; progressBar.classList.replace('bg-primary', 'bg-success'); progressBar.innerText = '100%'; progressText.innerText = '¡Carga Completada con Éxito!';
                         msgDiv.innerHTML = '<span class="text-success fw-bold">Actualizando tabla en pantalla...</span>'; 
-                        cargarTabla(hoja, true, true).then(() => {
-                            if (hoja === 'Asistencia_Docentes') {
-                                filtrarAsistencias('tb-Asistencia_Docentes', 'buscar-adoc-dni', 'buscar-adoc-fecha');
-                            } else if (hoja === 'Registro_Asistencia') {
-                                filtrarAsistencias('tb-Registro_Asistencia', 'buscar-asis-dni', 'buscar-asis-fecha');
-                            } else if (hoja === 'Asistencia_Auxiliar') {
-                                filtrarAsistencias('tb-Asistencia_Auxiliar', 'buscar-asis-aux-dni', 'buscar-asis-aux-fecha');
-                            } else if (hoja === 'Docentes') {
-                                filtrarDocentes();
-                            } else if (hoja === 'Estudiantes') {
-                                filtrarEstudiantes();
-                            } else if (hoja === 'Apoderados') {
-                                filtrarApoderados();
-                            } else if (hoja === 'Horarios') {
-                                filtrarHorarios();
-                            } else if (hoja === 'Horario_Docentes') {
-                                filtrarHorariosDocentes();
-                            } else if (hoja === 'Permisos') {
-                                filtrarPermisos();
-                            } else if (hoja === 'Permisos_Docentes') {
-                                filtrarPermisosDocentes();
-                            } else if (hoja === 'Incidencias') {
-                                filtrarIncidencias();
-                            }
-                        }); 
+                        cargarTabla(hoja); 
                         setTimeout(() => { bootstrap.Modal.getInstance(document.getElementById('modalMasivo')).hide(); progressContainer.classList.add('d-none'); progressBar.style.width = '0%'; progressBar.classList.replace('bg-success', 'bg-primary'); fileInput.value = ""; }, 2500); 
                     } else { progressContainer.classList.add('d-none'); msgDiv.innerHTML = '<span class="text-danger">' + r.mensaje + '</span>'; }
                 } catch (error) { progressContainer.classList.add('d-none'); msgDiv.innerHTML = '<span class="text-danger">Error al procesar el archivo. Asegúrate de usar la plantilla descargada.</span>'; }
@@ -3426,7 +3379,7 @@
 
         function toggleSidebar() {
             const sidebar = document.getElementById('sidebar'), mainContent = document.getElementById('main-content'), overlay = document.getElementById('sidebarOverlay');
-            if (window.innerWidth <= 768) { sidebar.classList.toggle('show-mobile'); overlay.classList.toggle('show-overlay'); } 
+            if (window.innerWidth <= 992) { sidebar.classList.toggle('show-mobile'); overlay.classList.toggle('show-overlay'); } 
             else { sidebar.classList.toggle('hidden-desktop'); mainContent.classList.toggle('expanded'); }
         }
 
@@ -3466,12 +3419,9 @@
                     let result = await res.json();
                     
                     if (result && result.mensaje && result.mensaje.includes("UNAUTHORIZED")) {
-                        let activeToken = sessionStorage.getItem('sessionToken');
-                        if (activeToken) {
-                            alert("Su sesión ha expirado o es inválida. Ingrese nuevamente.");
-                            sessionStorage.clear();
-                            location.reload();
-                        }
+                        alert("Su sesión ha expirado o es inválida. Ingrese nuevamente.");
+                        sessionStorage.clear();
+                        location.reload();
                         return { exito: false, mensaje: "SESSION_EXPIRED" };
                     }
                     return result;
@@ -3522,6 +3472,23 @@
                 }
             }
             return true;
+        }
+
+        async function confirmarCerrarSesion() {
+            const result = await Swal.fire({
+                title: '¿Cerrar sesión?',
+                text: '¿Está seguro de que desea salir del sistema?',
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#3085d6',
+                confirmButtonText: 'Sí, salir',
+                cancelButtonText: 'No, cancelar'
+            });
+            if (result.isConfirmed) {
+                sessionStorage.clear();
+                location.reload();
+            }
         }
 
         async function iniciarSesion() {
@@ -3718,7 +3685,7 @@
                 
                 rolActual = 'Kiosko'; usuarioDniActual = dniInput;
                 document.getElementById('login-section').classList.add('d-none'); document.getElementById('dashboard-section').classList.remove('d-none'); document.getElementById('sidebar').style.display = 'none';
-                let btnMenu = document.getElementById('btn-toggle-menu'); btnMenu.innerHTML = '<i class="fa-solid fa-arrow-left"></i> Salir'; btnMenu.setAttribute('onclick', 'location.reload()'); btnMenu.classList.replace('btn-light', 'btn-danger'); btnMenu.classList.add('text-white');
+                let btnMenu = document.getElementById('btn-toggle-menu'); btnMenu.innerHTML = '<i class="fa-solid fa-arrow-left"></i> Salir'; btnMenu.setAttribute('onclick', 'confirmarCerrarSesion()'); btnMenu.classList.replace('btn-light', 'btn-danger'); btnMenu.classList.add('text-white');
                 document.getElementById('main-content').classList.add('expanded'); 
                 
                 document.getElementById('user-name-display').innerHTML = `Prof. ${nombreDocente} <span class="badge bg-success ms-2 d-none d-md-inline">${claseActualInfo}</span>`;
@@ -3750,7 +3717,7 @@
                 document.getElementById('titulo-vista').innerText = btn.innerText.trim(); 
             }
             
-            if (window.innerWidth <= 768 && rolActual !== 'Kiosko' && rolActual !== 'KioskoDocente') { document.getElementById('sidebar').classList.remove('show-mobile'); document.getElementById('sidebarOverlay').classList.remove('show-overlay'); }
+            if (window.innerWidth <= 992 && rolActual !== 'Kiosko' && rolActual !== 'KioskoDocente') { document.getElementById('sidebar').classList.remove('show-mobile'); document.getElementById('sidebarOverlay').classList.remove('show-overlay'); }
             if(nombreHoja) cargarTabla(nombreHoja, false);
 
             if(idVista === 'v-logo') {
@@ -4506,21 +4473,16 @@
                 reporteGlobalData = { 
                     estudiantes: rEst.datos, 
                     asistencias: rAsis.datos.map(a => { 
-                        if (a && a[1]) { let fStr = a[1].toString().trim(); if (fStr.includes('T')) { let p = fStr.split('T')[0].split('-'); a[1] = p[2] + '/' + p[1] + '/' + p[0]; } else { a[1] = fStr; } } return a; 
+                        if (a[1]) { let fStr = a[1].toString().trim(); if (fStr.includes('T')) { let p = fStr.split('T')[0].split('-'); a[1] = p[2] + '/' + p[1] + '/' + p[0]; } else { a[1] = fStr; } } return a; 
                     }), 
                     areas: rArea.datos,
                     feriados: rFer.datos.map(f => {
-                        if (!f || !f[1]) return "";
                         let d = f[1]; if(typeof d === 'string' && d.includes('T')) { let p = d.split('T')[0].split('-'); return p[2]+'/'+p[1]+'/'+p[0]; } return d;
-                    }).filter(Boolean)
+                    })
                 };
                 
-                let docenteDB = rDoc.datos.find(d => {
-                    let dniA = String(d[0] || "").replace(/['"\s]/g, '').trim().padStart(8, '0');
-                    let dniB = String(usuarioDniActual || "").replace(/['"\s]/g, '').trim().padStart(8, '0');
-                    return dniA === dniB;
-                });
-                let areasPermitidasStr = (docenteDB && docenteDB[4]) ? String(docenteDB[4]).toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "") : "";
+                let docenteDB = rDoc.datos.find(d => d[0].toString() === usuarioDniActual.toString());
+                let areasPermitidasStr = docenteDB ? docenteDB[4].toString().toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "") : "";
 
                 let selArea = document.getElementById('rep-area'); selArea.innerHTML = '<option value="">Seleccionar</option>'; 
                 reporteGlobalData.areas.forEach(a => {
@@ -4548,7 +4510,7 @@
                 
                 if (rEst.datos.length === 0 || rAsisAux.datos.length === 0 || rAux.datos.length === 0) {
                     let rM = await fetchAPI({ accion: 'obtenerDatosVarios', hojas: ['Estudiantes', 'Asistencia_Auxiliar', 'Feriados', 'Auxiliares'] });
-                    if (!rM || !rM.exito || !rM.datos) throw new Error(rM ? rM.mensaje : "Error API");
+                    if (!rM || !rM.exito || !rM.datos) throw new Error("Error API");
                     rEst.datos = rM.datos['Estudiantes'] || [];
                     rAsisAux.datos = rM.datos['Asistencia_Auxiliar'] || [];
                     rFer.datos = rM.datos['Feriados'] || [];
@@ -4563,31 +4525,20 @@
                 reporteGlobalData = { 
                     estudiantes: rEst.datos, 
                     asistencias: rAsisAux.datos.map(a => { 
-                        if (a && a[1]) { let fStr = a[1].toString().trim(); if (fStr.includes('T')) { let p = fStr.split('T')[0].split('-'); a[1] = p[2] + '/' + p[1] + '/' + p[0]; } else { a[1] = fStr; } } return a; 
+                        if (a[1]) { let fStr = a[1].toString().trim(); if (fStr.includes('T')) { let p = fStr.split('T')[0].split('-'); a[1] = p[2] + '/' + p[1] + '/' + p[0]; } else { a[1] = fStr; } } return a; 
                     }), 
                     feriados: rFer.datos.map(f => {
-                        if (!f || !f[1]) return "";
                         let d = f[1]; if(typeof d === 'string' && d.includes('T')) { let p = d.split('T')[0].split('-'); return p[2]+'/'+p[1]+'/'+p[0]; } return d;
-                    }).filter(Boolean)
+                    })
                 };
 
                 let selGrado = document.getElementById('rep-aux-grado'); 
                 selGrado.innerHTML = '<option value="">Seleccionar</option>'; 
                 
-                let auxiliarDB = rAux.datos.find(a => {
-                    if (!a || !a[0]) return false;
-                    let dniA = String(a[0] || "").replace(/['"\s]/g, '').trim().padStart(8, '0');
-                    let dniB = String(usuarioDniActual || "").replace(/['"\s]/g, '').trim().padStart(8, '0');
-                    return dniA === dniB;
-                });
-                let gradosPermitidos = (auxiliarDB && auxiliarDB[3]) ? String(auxiliarDB[3]).toLowerCase().replace(/["'\s]/g, '') : "";
+                let auxiliarDB = rAux.datos.find(a => a[0].toString() === usuarioDniActual.toString());
+                let gradosPermitidos = auxiliarDB ? auxiliarDB[3].toString().toLowerCase().replace(/["'\s]/g, '') : "";
 
-                let gradosUnicos = [...new Set(
-                    reporteGlobalData.estudiantes
-                        .filter(e => e && e.length > 3 && e[2] && e[3])
-                        .map(e => e[2].toString().trim() + '|' + e[3].toString().trim())
-                )];
-                
+                let gradosUnicos = [...new Set(reporteGlobalData.estudiantes.map(e => e[2] + '|' + e[3]))];
                 gradosUnicos.sort().forEach(g => { 
                     let p = g.split('|'); 
                     let nombreGradoComp = (p[0] + p[1]).toLowerCase().replace(/["'\s]/g, '');
@@ -4596,10 +4547,7 @@
                     }
                 });
                 msg.innerHTML = '';
-            } catch (error) { 
-                console.error("Error en cargarFiltrosReporteAux:", error);
-                msg.innerHTML = `<span class="text-danger">Error al cargar grados: ${error.message || error}</span>`; 
-            }
+            } catch (error) { msg.innerHTML = '<span class="text-danger">Error al cargar grados.</span>'; }
         }
 
         async function cargarFiltrosReporteDocentes() {
@@ -4652,7 +4600,6 @@
                 }
                 
                 let asistenciasNormalizadas = rAsisAux.datos.map(a => { 
-                    if (!a) return null;
                     let row = [...a];
                     if (row[1]) { 
                         let fStr = row[1].toString().trim(); 
@@ -4664,17 +4611,16 @@
                         } 
                     } 
                     return row; 
-                }).filter(Boolean);
+                });
 
                 let feriadosNormalizados = rFer.datos.map(f => {
-                    if (!f || !f[1]) return "";
                     let d = f[1]; 
                     if(typeof d === 'string' && d.includes('T')) { 
                         let p = d.split('T')[0].split('-'); 
                         return p[2]+'/'+p[1]+'/'+p[0]; 
                     } 
                     return d;
-                }).filter(Boolean);
+                });
 
                 window.reporteFaltasData = { 
                     estudiantes: rEst.datos, 
@@ -4687,12 +4633,8 @@
                 if (selGrado) {
                     selGrado.innerHTML = '<option value="">Seleccionar</option>'; 
                     
-                    let auxiliarDB = rAux.datos.find(a => {
-                        let dniA = String(a[0] || "").replace(/['"\s]/g, '').trim().padStart(8, '0');
-                        let dniB = String(usuarioDniActual || "").replace(/['"\s]/g, '').trim().padStart(8, '0');
-                        return dniA === dniB;
-                    });
-                    let gradosPermitidos = (auxiliarDB && auxiliarDB[3]) ? String(auxiliarDB[3]).toLowerCase().replace(/["'\s]/g, '') : "";
+                    let auxiliarDB = rAux.datos.find(a => a[0].toString() === usuarioDniActual.toString());
+                    let gradosPermitidos = auxiliarDB ? auxiliarDB[3].toString().toLowerCase().replace(/["'\s]/g, '') : "";
 
                     let gradosUnicos = [...new Set(rEst.datos.map(e => e[2] + '|' + e[3]))];
                     gradosUnicos.sort().forEach(g => { 
@@ -4719,63 +4661,6 @@
             } catch (error) { 
                 console.error(error);
                 if (msg) msg.innerHTML = '<span class="text-danger">Error al cargar datos del reporte de faltas.</span>'; 
-            }
-        }
-
-        async function refrescarReporteEstudiantes() {
-            datosMemoria['Estudiantes'] = [];
-            datosMemoria['Registro_Asistencia'] = [];
-            datosMemoria['Areas'] = [];
-            datosMemoria['Feriados'] = [];
-            datosMemoria['Docentes'] = [];
-            await cargarFiltrosReporte();
-            let fIniVal = document.getElementById('rep-finicio').value;
-            let fFinVal = document.getElementById('rep-ffin').value;
-            let areaVal = document.getElementById('rep-area').value;
-            let gradoVal = document.getElementById('rep-grado').value;
-            if (fIniVal && fFinVal && areaVal && gradoVal) {
-                generarReporteMatricial('Estudiantes');
-            }
-        }
-
-        async function refrescarReporteAuxiliar() {
-            datosMemoria['Estudiantes'] = [];
-            datosMemoria['Asistencia_Auxiliar'] = [];
-            datosMemoria['Feriados'] = [];
-            datosMemoria['Auxiliares'] = [];
-            await cargarFiltrosReporteAux();
-            let fIniVal = document.getElementById('rep-aux-finicio').value;
-            let fFinVal = document.getElementById('rep-aux-ffin').value;
-            let gradoVal = document.getElementById('rep-aux-grado').value;
-            if (fIniVal && fFinVal && gradoVal) {
-                generarReporteMatricial('auxiliar');
-            }
-        }
-
-        async function refrescarReporteDocente() {
-            datosMemoria['Docentes'] = [];
-            datosMemoria['Asistencia_Docentes'] = [];
-            datosMemoria['Feriados'] = [];
-            datosMemoria['Permisos_Docentes'] = [];
-            await cargarFiltrosReporteDocentes();
-            let fIniVal = document.getElementById('rep-doc-finicio').value;
-            let fFinVal = document.getElementById('rep-doc-ffin').value;
-            if (fIniVal && fFinVal) {
-                generarReporteDocente();
-            }
-        }
-
-        async function refrescarReporteFaltas() {
-            datosMemoria['Estudiantes'] = [];
-            datosMemoria['Asistencia_Auxiliar'] = [];
-            datosMemoria['Feriados'] = [];
-            datosMemoria['Permisos'] = [];
-            await cargarFiltrosReporteFaltas();
-            let fIniVal = document.getElementById('rep-faltas-finicio').value;
-            let fFinVal = document.getElementById('rep-faltas-ffin').value;
-            let gradoVal = document.getElementById('rep-faltas-grado').value;
-            if (fIniVal && fFinVal && gradoVal) {
-                generarReporteFaltas();
             }
         }
 
@@ -6517,8 +6402,8 @@
 
             let r = await fetchAPI({ accion: 'obtenerDatos', hoja: hoja });
             if(r.exito) {
-                // Si es silencioso y los datos son iguales en longitud, no redibujamos para no parpadear
-                if (silencioso && datosMemoria[hoja] && (r.datos || []).length === datosMemoria[hoja].length) {
+                // Si es silencioso y los datos son exactamente iguales en contenido, no redibujamos para no parpadear
+                if (silencioso && datosMemoria[hoja] && JSON.stringify(r.datos || []) === JSON.stringify(datosMemoria[hoja])) {
                     if (hoja === 'Asistencia_Auxiliar' || hoja === 'Registro_Asistencia' || hoja === 'Asistencia_Docentes') {
                         limpiarDuplicadosColaLocal(false);
                     }
@@ -7084,31 +6969,7 @@
                 let chkAll = document.getElementById('chk-sel-todos-' + hoja) || document.getElementById('chk-all-hdoc');
                 if (chkAll) chkAll.checked = false;
                 
-                cargarTabla(hoja, true, true).then(() => {
-                    if (hoja === 'Asistencia_Docentes') {
-                        filtrarAsistencias('tb-Asistencia_Docentes', 'buscar-adoc-dni', 'buscar-adoc-fecha');
-                    } else if (hoja === 'Registro_Asistencia') {
-                        filtrarAsistencias('tb-Registro_Asistencia', 'buscar-asis-dni', 'buscar-asis-fecha');
-                    } else if (hoja === 'Asistencia_Auxiliar') {
-                        filtrarAsistencias('tb-Asistencia_Auxiliar', 'buscar-asis-aux-dni', 'buscar-asis-aux-fecha');
-                    } else if (hoja === 'Docentes') {
-                        filtrarDocentes();
-                    } else if (hoja === 'Estudiantes') {
-                        filtrarEstudiantes();
-                    } else if (hoja === 'Apoderados') {
-                        filtrarApoderados();
-                    } else if (hoja === 'Horarios') {
-                        filtrarHorarios();
-                    } else if (hoja === 'Horario_Docentes') {
-                        filtrarHorariosDocentes();
-                    } else if (hoja === 'Permisos') {
-                        filtrarPermisos();
-                    } else if (hoja === 'Permisos_Docentes') {
-                        filtrarPermisosDocentes();
-                    } else if (hoja === 'Incidencias') {
-                        filtrarIncidencias();
-                    }
-                });
+                cargarTabla(hoja);
             } catch (e) {
                 console.error(e);
                 Swal.fire('Error', "Error al eliminar registros: " + e.message, 'error');
@@ -7209,9 +7070,9 @@
                 let r = await fetchAPI({ accion: 'editarRegistro', hoja: 'Horario_Docentes', idActual: editandoID, datos: datos });
                 if(r.exito) {
                     msgDiv.innerHTML = '<span class="text-success">Actualizado con éxito</span>';
-                    cargarTabla('Horario_Docentes', true, true).then(() => filtrarHorariosDocentes());
+                    cargarTabla('Horario_Docentes');
                     // NUEVO: Recargar asistencias para ver recálculos retroactivos
-                    cargarTabla('Asistencia_Docentes', true, true).then(() => filtrarAsistencias('tb-Asistencia_Docentes', 'buscar-adoc-dni', 'buscar-adoc-fecha'));
+                    cargarTabla('Asistencia_Docentes', true);
                     setTimeout(() => { bootstrap.Modal.getInstance(document.getElementById('modal-Horario_Docentes')).hide(); cancelarEdicion('Horario_Docentes'); }, 1000);
                 } else { msgDiv.innerHTML = '<span class="text-danger">' + r.mensaje + '</span>'; }
             } else {
@@ -7229,9 +7090,9 @@
                 let r = await fetchAPI({ accion: 'guardarMasivo', hoja: 'Horario_Docentes', matriz: matriz });
                 if(r.exito) {
                     msgDiv.innerHTML = '<span class="text-success">Horarios guardados correctamente</span>';
-                    cargarTabla('Horario_Docentes', true, true).then(() => filtrarHorariosDocentes());
+                    cargarTabla('Horario_Docentes');
                     // NUEVO: Recargar asistencias para ver recálculos retroactivos
-                    cargarTabla('Asistencia_Docentes', true, true).then(() => filtrarAsistencias('tb-Asistencia_Docentes', 'buscar-adoc-dni', 'buscar-adoc-fecha'));
+                    cargarTabla('Asistencia_Docentes', true);
                     setTimeout(() => { bootstrap.Modal.getInstance(document.getElementById('modal-Horario_Docentes')).hide(); cancelarEdicion('Horario_Docentes'); }, 1000);
                 } else { msgDiv.innerHTML = '<span class="text-danger">' + r.mensaje + '</span>'; }
             }
@@ -7990,34 +7851,7 @@
             msgDiv.innerHTML = '<span class="text-primary"><i class="fa-solid fa-spinner fa-spin"></i> Procesando...</span>';
             let req = { hoja: hoja, datos: datosArray }; if(editandoID) { req.accion = 'editarRegistro'; req.idActual = editandoID; } else { req.accion = 'guardarRegistro'; }
             let r = await fetchAPI(req);
-            if(r.exito) { 
-                msgDiv.innerHTML = '<span class="text-success"><i class="fa-solid fa-circle-check"></i> ' + r.mensaje + '</span>'; 
-                cargarTabla(hoja, true, true).then(() => {
-                    if (hoja === 'Asistencia_Docentes') {
-                        filtrarAsistencias('tb-Asistencia_Docentes', 'buscar-adoc-dni', 'buscar-adoc-fecha');
-                    } else if (hoja === 'Registro_Asistencia') {
-                        filtrarAsistencias('tb-Registro_Asistencia', 'buscar-asis-dni', 'buscar-asis-fecha');
-                    } else if (hoja === 'Asistencia_Auxiliar') {
-                        filtrarAsistencias('tb-Asistencia_Auxiliar', 'buscar-asis-aux-dni', 'buscar-asis-aux-fecha');
-                    } else if (hoja === 'Docentes') {
-                        filtrarDocentes();
-                    } else if (hoja === 'Estudiantes') {
-                        filtrarEstudiantes();
-                    } else if (hoja === 'Apoderados') {
-                        filtrarApoderados();
-                    } else if (hoja === 'Horarios') {
-                        filtrarHorarios();
-                    } else if (hoja === 'Horario_Docentes') {
-                        filtrarHorariosDocentes();
-                    } else if (hoja === 'Permisos') {
-                        filtrarPermisos();
-                    } else if (hoja === 'Permisos_Docentes') {
-                        filtrarPermisosDocentes();
-                    } else if (hoja === 'Incidencias') {
-                        filtrarIncidencias();
-                    }
-                }); 
-                setTimeout(() => { bootstrap.Modal.getInstance(document.getElementById('modal-' + hoja)).hide(); cancelarEdicion(hoja); }, 1000); 
+            if(r.exito) { msgDiv.innerHTML = '<span class="text-success"><i class="fa-solid fa-circle-check"></i> ' + r.mensaje + '</span>'; cargarTabla(hoja); setTimeout(() => { bootstrap.Modal.getInstance(document.getElementById('modal-' + hoja)).hide(); cancelarEdicion(hoja); }, 1000); 
             } else { msgDiv.innerHTML = '<span class="text-danger"><i class="fa-solid fa-circle-xmark"></i> ' + r.mensaje + '</span>'; }
         }
 
@@ -8064,7 +7898,7 @@
             let r = await fetchAPI(req);
             if(r.exito) {
                 msg.innerHTML = '<span class="text-success"><i class="fa-solid fa-circle-check"></i> ' + r.mensaje + '</span>';
-                cargarTabla('Docentes', true, true).then(() => filtrarDocentes());
+                cargarTabla('Docentes');
                 
                 if (editandoID) {
                     // CASCADA FRONTEND: Recargar en segundo plano las tablas que pudieron haberse visto afectadas
@@ -8102,31 +7936,7 @@
                 let r = await fetchAPI({ accion: 'eliminarRegistro', hoja: hoja, id: id });
                 if(r.exito) { 
                     Swal.fire('¡Eliminado!', 'El registro ha sido eliminado con éxito.', 'success');
-                    cargarTabla(hoja, true, true).then(() => {
-                        if (hoja === 'Asistencia_Docentes') {
-                            filtrarAsistencias('tb-Asistencia_Docentes', 'buscar-adoc-dni', 'buscar-adoc-fecha');
-                        } else if (hoja === 'Registro_Asistencia') {
-                            filtrarAsistencias('tb-Registro_Asistencia', 'buscar-asis-dni', 'buscar-asis-fecha');
-                        } else if (hoja === 'Asistencia_Auxiliar') {
-                            filtrarAsistencias('tb-Asistencia_Auxiliar', 'buscar-asis-aux-dni', 'buscar-asis-aux-fecha');
-                        } else if (hoja === 'Docentes') {
-                            filtrarDocentes();
-                        } else if (hoja === 'Estudiantes') {
-                            filtrarEstudiantes();
-                        } else if (hoja === 'Apoderados') {
-                            filtrarApoderados();
-                        } else if (hoja === 'Horarios') {
-                            filtrarHorarios();
-                        } else if (hoja === 'Horario_Docentes') {
-                            filtrarHorariosDocentes();
-                        } else if (hoja === 'Permisos') {
-                            filtrarPermisos();
-                        } else if (hoja === 'Permisos_Docentes') {
-                            filtrarPermisosDocentes();
-                        } else if (hoja === 'Incidencias') {
-                            filtrarIncidencias();
-                        }
-                    }); 
+                    cargarTabla(hoja); 
                 } else { 
                     Swal.fire('Error', r.mensaje, 'error'); 
                 }
@@ -8264,7 +8074,7 @@
                 msg.innerHTML = `<span class="text-warning fw-bold">Proceso terminado. Eliminados: ${exitos}, Errores: ${errores}.</span>`;
             }
 
-            await cargarTabla(hojaDuplicadosActual, true, true);
+            await cargarTabla(hojaDuplicadosActual, true);
             setTimeout(() => {
                 bootstrap.Modal.getOrCreateInstance(document.getElementById('modal-Duplicados')).hide();
                 btn.disabled = false;
@@ -8284,40 +8094,14 @@
                     nuevosDatos[8] = (estadoActual === 'ACTIVO' || estadoActual === "") ? 'Inactivo' : 'Activo';
                     
                     let r = await fetchAPI({ accion: 'editarRegistro', hoja: 'Horarios', idActual: id, datos: nuevosDatos });
-                    if(r.exito) { cargarTabla(hoja, true, true).then(() => filtrarHorarios()); } else { alert(r.mensaje); }
+                    if(r.exito) { cargarTabla(hoja); } else { alert(r.mensaje); }
                     return;
                 }
             }
 
             // Para las demás hojas seguimos usando la acción estándar
             let r = await fetchAPI({ accion: 'cambiarEstado', hoja: hoja, id: id }); 
-            if(r.exito) { 
-                cargarTabla(hoja, true, true).then(() => {
-                    if (hoja === 'Asistencia_Docentes') {
-                        filtrarAsistencias('tb-Asistencia_Docentes', 'buscar-adoc-dni', 'buscar-adoc-fecha');
-                    } else if (hoja === 'Registro_Asistencia') {
-                        filtrarAsistencias('tb-Registro_Asistencia', 'buscar-asis-dni', 'buscar-asis-fecha');
-                    } else if (hoja === 'Asistencia_Auxiliar') {
-                        filtrarAsistencias('tb-Asistencia_Auxiliar', 'buscar-asis-aux-dni', 'buscar-asis-aux-fecha');
-                    } else if (hoja === 'Docentes') {
-                        filtrarDocentes();
-                    } else if (hoja === 'Estudiantes') {
-                        filtrarEstudiantes();
-                    } else if (hoja === 'Apoderados') {
-                        filtrarApoderados();
-                    } else if (hoja === 'Horarios') {
-                        filtrarHorarios();
-                    } else if (hoja === 'Horario_Docentes') {
-                        filtrarHorariosDocentes();
-                    } else if (hoja === 'Permisos') {
-                        filtrarPermisos();
-                    } else if (hoja === 'Permisos_Docentes') {
-                        filtrarPermisosDocentes();
-                    } else if (hoja === 'Incidencias') {
-                        filtrarIncidencias();
-                    }
-                }); 
-            } else { alert(r.mensaje); } 
+            if(r.exito) { cargarTabla(hoja); } else { alert(r.mensaje); } 
         }
         
         function abrirModalMasivo(hoja) { document.getElementById('hoja-masivo').value = hoja; document.getElementById('file-masivo').value = ""; document.getElementById('msg-Masivo').innerHTML = ""; bootstrap.Modal.getOrCreateInstance(document.getElementById('modalMasivo')).show(); }
@@ -10345,43 +10129,12 @@
                 setTimeout(() => {
                     if (!esSilencioso) {
                         alert(`¡Excelente! Se han subido correctamente los registros guardados localmente a la base de datos.`);
-                    } else {
-                        showModernToast(`Sincronización automática completada.`, 'success');
                     }
                     if (document.getElementById('sync-container')) document.getElementById('sync-container').classList.add('d-none');
                     if (btnMain) btnMain.classList.replace('btn-success', 'btn-warning');
                     if (progWrapperMain) progWrapperMain.classList.add('d-none');
                     actualizarBotonesSyncQR("inicio");
                     actualizarUIOffline();
-
-                    if (window.hojaActualVisible) {
-                        cargarTabla(window.hojaActualVisible, true, true).then(() => {
-                            let h = window.hojaActualVisible;
-                            if (h === 'Asistencia_Docentes') {
-                                filtrarAsistencias('tb-Asistencia_Docentes', 'buscar-adoc-dni', 'buscar-adoc-fecha');
-                            } else if (h === 'Registro_Asistencia') {
-                                filtrarAsistencias('tb-Registro_Asistencia', 'buscar-asis-dni', 'buscar-asis-fecha');
-                            } else if (h === 'Asistencia_Auxiliar') {
-                                filtrarAsistencias('tb-Asistencia_Auxiliar', 'buscar-asis-aux-dni', 'buscar-asis-aux-fecha');
-                            } else if (h === 'Docentes') {
-                                filtrarDocentes();
-                            } else if (h === 'Estudiantes') {
-                                filtrarEstudiantes();
-                            } else if (h === 'Apoderados') {
-                                filtrarApoderados();
-                            } else if (h === 'Horarios') {
-                                filtrarHorarios();
-                            } else if (h === 'Horario_Docentes') {
-                                filtrarHorariosDocentes();
-                            } else if (h === 'Permisos') {
-                                filtrarPermisos();
-                            } else if (h === 'Permisos_Docentes') {
-                                filtrarPermisosDocentes();
-                            } else if (h === 'Incidencias') {
-                                filtrarIncidencias();
-                            }
-                        });
-                    }
                 }, 1000);
             } else {
                 actualizarBotonesSyncQR("inicio");
@@ -10938,7 +10691,7 @@
                 
                 msg.innerHTML = '<span class="text-success"><i class="fa-solid fa-circle-check"></i> Guardado correctamente</span>';
                 limpiarFotoCapturadaEstudiante();
-                cargarTabla('Estudiantes', true, true).then(() => filtrarEstudiantes());
+                cargarTabla('Estudiantes');
                 setTimeout(() => { bootstrap.Modal.getInstance(document.getElementById('modal-Estudiantes')).hide(); cancelarEdicion('Estudiantes'); }, 1000);
             } else {
                 msg.innerHTML = '<span class="text-danger">' + r.mensaje + '</span>';
@@ -11172,7 +10925,7 @@
     let r = await fetchAPI(req);
     if(r.exito) {
         msg.innerHTML = '<span class="text-success"><i class="fa-solid fa-circle-check"></i> ' + r.mensaje + '</span>';
-        cargarTabla('Incidencias', true, true).then(() => filtrarIncidencias());
+        cargarTabla('Incidencias');
         setTimeout(() => { 
             let mod = bootstrap.Modal.getInstance(document.getElementById('modal-Incidencias')); 
             if(mod) mod.hide(); 
@@ -12704,7 +12457,22 @@ async function descargarConsolidadoIncidenciasPDF(dni, fInicio, fFin) {
                 })();
             }
 
-
+            // Pre-carga silenciosa de datos en segundo plano al ingresar al login para que el sistema esté listo
+            (async function preCargaInicialLogin() {
+                try {
+                    let hojasPreload = ['Estudiantes', 'Registro_Asistencia', 'Asistencia_Docentes', 'Asistencia_Auxiliar', 'Incidencias', 'Areas', 'Horarios', 'Feriados', 'Permisos', 'Apoderados'];
+                    let rPre = await fetchAPI({ accion: 'obtenerDatosVarios', hojas: hojasPreload });
+                    if (rPre.exito && rPre.datos) {
+                        for (let h of hojasPreload) {
+                            if (rPre.datos[h] !== undefined) {
+                                datosMemoria[h] = rPre.datos[h];
+                            }
+                        }
+                    }
+                } catch (e) {
+                    console.warn("Pre-carga de fondo inicial omitida:", e);
+                }
+            })();
 
             // Cerrar cámara al cerrar modal Estudiantes
             const modalEst = document.getElementById('modal-Estudiantes');
@@ -13551,7 +13319,7 @@ async function descargarConsolidadoIncidenciasPDF(dni, fInicio, fFin) {
             
             if(rGuardar.exito) {
                 msg.innerHTML = '<span class="text-success"><i class="fa-solid fa-check"></i> Permiso guardado. Actualizando tabla...</span>';
-                await cargarTabla('Permisos', true, true).then(() => filtrarPermisos());
+                await cargarTabla('Permisos', true);
                 bootstrap.Modal.getOrCreateInstance(document.getElementById('modal-Permisos')).hide();
             } else {
                 msg.innerHTML = '<span class="text-danger">Error al guardar: ' + rGuardar.mensaje + '</span>';
@@ -13725,6 +13493,9 @@ async function descargarConsolidadoIncidenciasPDF(dni, fInicio, fFin) {
                 let selectorEscaneo = document.getElementById('selector-entidad-escaneo');
                 if(selectorEscaneo) selectorEscaneo.classList.remove('d-none');
                 document.querySelectorAll('.qr-col').forEach(el => el.classList.remove('d-none'));
+                document.querySelectorAll('.pdf-btn-carnets').forEach(el => el.classList.remove('d-none'));
+                let btnPrefetch = document.getElementById('btn-manual-prefetch');
+                if(btnPrefetch) btnPrefetch.classList.remove('d-none');
                 return;
             }
 
@@ -13805,13 +13576,22 @@ async function descargarConsolidadoIncidenciasPDF(dni, fInicio, fFin) {
                 bootstrap.Collapse.getOrCreateInstance(document.getElementById('collapsePersonal')).show();
             }
 
-            // Ocultar columnas QR y botón PDF Carnets si es Docente
+            // Ocultar columnas QR si es Docente
             if(rolActual === 'Docente') {
                 document.querySelectorAll('.qr-col').forEach(el => el.classList.add('d-none'));
-                document.querySelectorAll('.pdf-btn-carnets').forEach(el => el.classList.add('d-none'));
             } else {
                 document.querySelectorAll('.qr-col').forEach(el => el.classList.remove('d-none'));
+            }
+
+            // Ocultar botones "PDF Carnets" y "Optimizar Carnets" si es Docente o Auxiliar
+            if(rolActual === 'Docente' || rolActual === 'Auxiliar') {
+                document.querySelectorAll('.pdf-btn-carnets').forEach(el => el.classList.add('d-none'));
+                let btnPrefetch = document.getElementById('btn-manual-prefetch');
+                if(btnPrefetch) btnPrefetch.classList.add('d-none');
+            } else {
                 document.querySelectorAll('.pdf-btn-carnets').forEach(el => el.classList.remove('d-none'));
+                let btnPrefetch = document.getElementById('btn-manual-prefetch');
+                if(btnPrefetch) btnPrefetch.classList.remove('d-none');
             }
 
             // Reglas especiales QR
@@ -14573,24 +14353,6 @@ async function descargarConsolidadoIncidenciasPDF(dni, fInicio, fFin) {
             bootstrap.Modal.getOrCreateInstance(document.getElementById('modalCambiarPass')).show();
         }
 
-        async function cerrarSesion() {
-            let result = await Swal.fire({
-                title: '¿Cerrar sesión?',
-                text: '¿Está seguro de que desea salir del sistema?',
-                icon: 'question',
-                showCancelButton: true,
-                confirmButtonColor: '#dc3545',
-                cancelButtonColor: '#6c757d',
-                confirmButtonText: 'Sí, salir',
-                cancelButtonText: 'No, cancelar'
-            });
-
-            if (result.isConfirmed) {
-                sessionStorage.clear();
-                location.reload();
-            }
-        }
-
         async function guardarNuevaPass() {
             let p1 = document.getElementById('new-pass-1').value;
             let p2 = document.getElementById('new-pass-2').value;
@@ -14980,7 +14742,7 @@ async function descargarConsolidadoIncidenciasPDF(dni, fInicio, fFin) {
 
             if(rBD.exito) {
                 msg.innerHTML = '<span class="text-success"><i class="fa-solid fa-check"></i> ' + rBD.mensaje + '</span>';
-                await cargarTabla('Permisos_Docentes', true, true).then(() => filtrarPermisosDocentes());
+                await cargarTabla('Permisos_Docentes');
                 setTimeout(() => {
                     let mod = bootstrap.Modal.getInstance(document.getElementById('modal-Permisos-Docentes'));
                     if(mod) mod.hide();
